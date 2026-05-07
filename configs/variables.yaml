@@ -1,0 +1,63 @@
+sources:
+  sante_wdi:
+    file: "data_raw_health_WDI.csv"
+    format: "wdi_csv"
+    variables:
+      "Life expectancy at birth, total (years)": "life_expectancy"
+      "Physicians (per 1,000 people)": "physicians_per_1000"
+      "Prevalence of HIV, total (% of population ages 15-49)": "hiv_prevalence"
+      "Immunization, DPT (% of children ages 12-23 months)": "vaccination_dpt"
+      "Mortality rate, under-5 (per 1,000 live births)": "child_mortality"
+      "Incidence of tuberculosis (per 100,000 people)": "tb_incidence"
+      "Maternal mortality ratio (modeled estimate, per 100,000 live births)": "maternal_mortality"
+      "Current health expenditure (% of GDP)": "health_expenditure_pct_gdp"
+      
+  sante_who:
+    file: "data_raw_health_WHO.csv"
+    format: "who_csv"
+    variables:
+      "life_expectancy_who": "life_expectancy_who"
+      
+  social_poverty_mpi:
+    file: "MPI — % pop en pauvrete multidim.xlsx"
+    format: "wb_excel"
+    variables:
+      2014: "mpi_poverty_pct"
+      
+  social_literacy:
+    file: "literacy adult percentage.xlsx"
+    format: "wb_excel"
+    variables:
+      2014: "adult_literacy_pct"
+      
+  social_poverty_2_15:
+    file: "Taux de pauvrete ( 2,15$jour PPP).xlsx"
+    format: "wb_excel"
+    variables:
+      2014: "poverty_rate_2_15_usd_ppp"
+      
+  social_schooling:
+    file: "scolarisation primaire nette.xlsx"
+    format: "wb_excel"
+    variables:
+      2014: "primary_schooling_net_pct"
+      
+  social_undernourishment:
+    file: "sous alimentation.xlsx"
+    format: "wb_excel"
+    variables:
+      2014: "undernourishment_pct"
+      
+  securite_civil:
+    file: "civilian-targeting-events-and-fatalities.xlsx"
+    format: "acled_excel"
+    variables:
+      "Events": "civil_events"
+      "Fatalities": "civil_fatalities"
+      
+  securite_political:
+    file: "political-violence-events-and-fatalities.xlsx"
+    format: "acled_excel"
+    variables:
+      "Events": "political_events"
+      "Fatalities": "political_fatalities"
