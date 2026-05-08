@@ -61,3 +61,12 @@ sources:
     variables:
       "Events": "political_events"
       "Fatalities": "political_fatalities"
+
+Fragile States Index (FSI):
+    file: "fsi-2015.xlsx"
+    format: "fsi_excel"
+    variables:
+      "C1: Security Apparatus": "security_apparatus"
+      "C3: Group Grievance": "group_grievance"
+      "S2: Refugees and IDPs": "refugees_idps"
+      "X1: External Intervention": "external_intervention"
