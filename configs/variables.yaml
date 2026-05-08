@@ -19,7 +19,7 @@ sources:
       "life_expectancy_who": "life_expectancy_who"
       
   social_poverty_mpi:
-    file: "MPI — % pop en pauvrete multidim.xlsx"
+    file: "MPI _pop en pauvrete multidim.xlsx"
     format: "wb_excel"
     variables:
       2014: "mpi_poverty_pct"
