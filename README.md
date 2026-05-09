@@ -206,11 +206,11 @@ Méthodes de Machine Learning non supervisé :
 
 * [Awa Diaw](https://github.com/awa-d)
 
-* [Moussa Dieme](https://github.com/member1)
+* [Moussa Dieme](https://github.com/Mafieuu)
 
 * [Ndeye Ramatoulaye Ndoye Fall](https://github.com/Vimdie)
 
-* [Hildegarde Edima Biyenda](https://github.com/hilda)
+* [Hildegarde Edima Biyenda](https://github.com/HildaEDIMA)
 
 ---
 
@@ -273,3 +273,5 @@ Utiliser :
 Ce dépôt s’inscrit dans le cadre d’un projet académique.
 
 Son utilisation est autorisée à des fins éducatives et de recherche.
+
+*SigmaPulse: Calculated compassion, where Data Science meets human dignity.*
