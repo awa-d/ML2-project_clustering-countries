@@ -62,7 +62,7 @@ sources:
       "Events": "political_events"
       "Fatalities": "political_fatalities"
 
-Fragile_States_Index:
+  fragile_states_index:
     file: "fsi-2015.xlsx"
     format: "fsi_excel"
     variables:
