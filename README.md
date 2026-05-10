@@ -23,7 +23,6 @@
 | [Note de cadrage](reports/Note_cadrage_ML2-project.pdf) | Vision stratégique, contexte, objectifs et périmètre du projet | PDF |
 | [Note technique](reports/Notes_techniques_ML2-project.pdf) | Méthodologie ML détaillée — prétraitement, clustering, évaluation | PDF |
 | [Dictionnaire des datasets](reports/Dictionnaire-datasets_ML2-project.pdf) | Architecture des bases, sources, harmonisation etDescription complète de chaque variable retenue dans le modèle  | PDF |
-| [Dictionnaire des variables](reports/data_dict.md) | | Markdown |
 | [Présentation finale](https://canva.link/pjxrf7idnx0ub33) | Support de présentation — Groupe 4, CTR06, 2026 | Canva |
 
 ---
