@@ -24,7 +24,6 @@
 | [Note technique](reports/Notes_techniques_ML2-project.pdf) | Méthodologie ML détaillée — prétraitement, clustering, évaluation | PDF |
 | [Dictionnaire des datasets](reports/Dictionnaire-datasets_ML2-project.pdf) | Architecture des bases, sources, harmonisation etDescription complète de chaque variable retenue dans le modèle  | PDF |
 | [Dictionnaire des variables](reports/data_dict.md) | | Markdown |
-| [Documentation FSI](reports/documentation_FSI_variables.md) | Description des indicateurs du Fragile States Index utilisés | Markdown |
 | [Présentation finale](https://canva.link/pjxrf7idnx0ub33) | Support de présentation — Groupe 4, CTR06, 2026 | Canva |
 
 ---
@@ -58,21 +57,53 @@ L'objectif est de proposer une stratégie d'allocation des ressources humanitair
 ## Stack technique
 
 ### Langages
-- Python 3.11+
-- SQL
-- Markdown
+
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="45" height="45" alt="Python"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="45" height="45" alt="SQL"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg" width="45" height="45" alt="Markdown"/>
+</p>
+
+---
 
 ### Data Science & Machine Learning
-- pandas, numpy, scikit-learn, scipy, statsmodels, imbalanced-learn
+
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="45" height="45" alt="Pandas"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="45" height="45" alt="NumPy"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="70" height="45" alt="Scikit-learn"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/SCIPY_2.svg" width="70" height="45" alt="SciPy"/>
+  <img src="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-no-text.svg" width="45" height="45" alt="Statsmodels"/>
+</p>
+
+---
 
 ### Visualisation
-- matplotlib, seaborn, plotly
+
+<p align="left">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" width="45" height="45" alt="Matplotlib"/>
+  <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" width="45" height="45" alt="Seaborn"/>
+  <img src="https://images.plot.ly/logo/new-branding/plotly-logomark.png" width="45" height="45" alt="Plotly"/>
+</p>
+
+---
 
 ### Environnement de développement
-- Jupyter Notebook, Google Colab, VS Code
+
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" width="45" height="45" alt="Jupyter"/>
+  <img src="https://colab.research.google.com/img/colab_favicon_256px.png" width="45" height="45" alt="Google Colab"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="45" height="45" alt="VS Code"/>
+</p>
+
+---
 
 ### Versioning
-- Git, GitHub
+
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="45" height="45" alt="Git"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="45" height="45" alt="GitHub"/>
+</p>
 
 ---
 
