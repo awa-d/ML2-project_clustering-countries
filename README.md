@@ -1,4 +1,4 @@
-# SigmaPulse — Clustering de pays
+# Clustering de pays
 
 ## Vue d’ensemble
 
