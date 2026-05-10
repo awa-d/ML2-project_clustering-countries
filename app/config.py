@@ -50,10 +50,10 @@ APP_TITLE    = "SigmaPulse"
 APP_SUBTITLE = "Calculated compassion: where Data Science meets human dignity."
 
 TEAM = [
-    {"name": "Awa Diaw",                      "role": "Data preprocessing & EDA",            "github": ""},
-    {"name": "Moussa Dieme",                  "role": "Modelisation & evaluation",            "github": ""},
-    {"name": "Ndeye Ramatoulaye Ndoye Fall",  "role": "Enrichissement FSI & interpretation",  "github": ""},
-    {"name": "Hildegarde Edima Biyenda",      "role": "Dashboard & visualisation",            "github": ""},
+    {"name": "Awa Diaw",                      "role": "Team work",            "github": ""},
+    {"name": "Moussa Dieme",                  "role": "Team work",            "github": ""},
+    {"name": "Ndeye Ramatoulaye Ndoye Fall",  "role": "Team work",  "github": ""},
+    {"name": "Hildegarde Edima Biyenda",      "role": "Team work",            "github": ""},
 ]
 SUPERVISOR = "Mously Diaw — Senior Machine Learning & Data Science Supervisor"
 
