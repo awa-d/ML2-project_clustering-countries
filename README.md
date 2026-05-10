@@ -55,56 +55,123 @@ L'objectif est de proposer une stratégie d'allocation des ressources humanitair
 ---
 
 ## Stack technique
-
 ### Langages
 
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="45" height="45" alt="Python"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="45" height="45" alt="SQL"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg" width="45" height="45" alt="Markdown"/>
-</p>
+<table>
+<tr>
+<td align="center">
+  <strong>Python</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="55"/>
+</td>
+
+<td align="center">
+  <strong>SQL</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="55"/>
+</td>
+
+<td align="center">
+  <strong>Markdown</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg" width="55"/>
+</td>
+</tr>
+</table>
 
 ---
 
 ### Data Science & Machine Learning
 
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="45" height="45" alt="Pandas"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="45" height="45" alt="NumPy"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="70" height="45" alt="Scikit-learn"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/SCIPY_2.svg" width="70" height="45" alt="SciPy"/>
-  <img src="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-no-text.svg" width="45" height="45" alt="Statsmodels"/>
-</p>
+<table>
+<tr>
+<td align="center">
+  <strong>Pandas</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="55"/>
+</td>
+
+<td align="center">
+  <strong>NumPy</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="55"/>
+</td>
+
+<td align="center">
+  <strong>Scikit-Learn</strong><br>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="70"/>
+</td>
+
+<td align="center">
+  <strong>SciPy</strong><br>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/SCIPY_2.svg" width="70"/>
+</td>
+
+<td align="center">
+  <strong>Statsmodels</strong><br>
+  <img src="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-no-text.svg" width="55"/>
+</td>
+</tr>
+</table>
 
 ---
 
 ### Visualisation
 
-<p align="left">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" width="45" height="45" alt="Matplotlib"/>
-  <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" width="45" height="45" alt="Seaborn"/>
-  <img src="https://images.plot.ly/logo/new-branding/plotly-logomark.png" width="45" height="45" alt="Plotly"/>
-</p>
+<table>
+<tr>
+<td align="center">
+  <strong>Matplotlib</strong><br>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" width="55"/>
+</td>
+
+<td align="center">
+  <strong>Seaborn</strong><br>
+  <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" width="55"/>
+</td>
+
+<td align="center">
+  <strong>Plotly</strong><br>
+  <img src="https://images.plot.ly/logo/new-branding/plotly-logomark.png" width="55"/>
+</td>
+</tr>
+</table>
 
 ---
 
 ### Environnement de développement
 
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" width="45" height="45" alt="Jupyter"/>
-  <img src="https://colab.research.google.com/img/colab_favicon_256px.png" width="45" height="45" alt="Google Colab"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="45" height="45" alt="VS Code"/>
-</p>
+<table>
+<tr>
+<td align="center">
+  <strong>Jupyter</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" width="55"/>
+</td>
+
+<td align="center">
+  <strong>Google Colab</strong><br>
+  <img src="https://colab.research.google.com/img/colab_favicon_256px.png" width="55"/>
+</td>
+
+<td align="center">
+  <strong>VS Code</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="55"/>
+</td>
+</tr>
+</table>
 
 ---
 
 ### Versioning
 
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="45" height="45" alt="Git"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="45" height="45" alt="GitHub"/>
-</p>
+<table>
+<tr>
+<td align="center">
+  <strong>Git</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="55"/>
+</td>
 
+<td align="center">
+  <strong>GitHub</strong><br>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="55"/>
+</td>
+</tr>
+</table>
 ---
 
 ## Architecture du dépôt
