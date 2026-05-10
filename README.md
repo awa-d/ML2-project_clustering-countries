@@ -1,9 +1,9 @@
 # SigmaPulse — Clustering de pays pour l'aide humanitaire
 
 <p align="center">
-  <img src="images/logo_sigmapulse.png" alt="Logo SigmaPulse" height="80"/>
+  <img src="images/sigma_pulse_logo.png" alt="Logo SigmaPulse" height="80"/>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/logo_help.png" alt="Logo HELP ONG" height="80"/>
+  <img src="images/help_ngo_logo.png" alt="Logo HELP ONG" height="80"/>
 </p>
 
 ---
