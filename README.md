@@ -101,10 +101,6 @@ L'objectif est de proposer une stratégie d'allocation des ressources humanitair
   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/SCIPY_2.svg" width="70"/>
 </td>
 
-<td align="center">
-  <strong>Statsmodels</strong><br>
-  <img src="https://www.statsmodels.org/stable/_images/statsmodels-logo-v2-no-text.svg" width="55"/>
-</td>
 </tr>
 </table>
 
