@@ -201,7 +201,7 @@ git clone https://github.com/Vimdie/clustering_countries.git
 pip install -r requirements.txt
 ```
 
-Exécuter les notebooks dans l'ordre : P0 → P1 / P1 → P2 → P3, via Jupyter Notebook, VS Code ou Google Colab.
+Exécuter les notebooks dans l'ordre : P0 → P1_main puis P1_enriched → P2 → P3, via Jupyter Notebook, VS Code ou Google Colab.
 
 ---
 
