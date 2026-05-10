@@ -16,6 +16,19 @@
 
 ---
 
+## 📄 Documentation & Rapports
+
+| Document | Description | Format |
+|---|---|---|
+| [Note de cadrage](reports/Note_cadrage_ML2-project.pdf) | Vision stratégique, contexte, objectifs et périmètre du projet | PDF |
+| [Note technique](reports/Notes_techniques_ML2-project.pdf) | Méthodologie ML détaillée — prétraitement, clustering, évaluation | PDF |
+| [Dictionnaire des datasets](reports/Dictionnaire-datasets_ML2-project.pdf) | Architecture des bases, sources, harmonisation etDescription complète de chaque variable retenue dans le modèle  | PDF |
+| [Dictionnaire des variables](reports/data_dict.md) | | Markdown |
+| [Documentation FSI](reports/documentation_FSI_variables.md) | Description des indicateurs du Fragile States Index utilisés | Markdown |
+| [Présentation finale](https://canva.link/pjxrf7idnx0ub33) | Support de présentation — Groupe 4, CTR06, 2026 | Canva |
+
+---
+
 ## Vue d'ensemble
 
 SigmaPulse est un projet académique de Machine Learning consacré à l'optimisation de l'allocation de l'aide humanitaire à travers une approche analytique, explicable et orientée données.
@@ -66,7 +79,7 @@ L'objectif est de proposer une stratégie d'allocation des ressources humanitair
 ## Architecture du dépôt
 
 ```text
-SigmaPulse/
+clustering_countries/
 │
 ├── images/
 │   ├── logo_sigmapulse.png
@@ -91,18 +104,21 @@ SigmaPulse/
 │   └── datasets_agreges/
 │
 ├── src/
-│   ├── preprocessing/
-│   ├── feature_engineering/
-│   ├── modeling/
-│   ├── visualization/
-│   └── utils/
+│   ├── config/
+│   ├── utils/
+│   └─_init_.py
 │
-├── docs/
-│   ├── methodology/
-│   ├── references/
-│   └── presentations/
+├── test/test_country.py
+├
+├── reports/
+├
+├── configs/
+├
+├── venv/
 │
 ├── requirements.txt
+├── app_requirements.txt
+├── pyproject.toml
 ├── README.md
 ├── .gitignore
 └── LICENSE
