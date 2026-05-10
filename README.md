@@ -64,11 +64,6 @@ L'objectif est de proposer une stratégie d'allocation des ressources humanitair
 </td>
 
 <td align="center">
-  <strong>SQL</strong><br>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="55"/>
-</td>
-
-<td align="center">
   <strong>Markdown</strong><br>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg" width="55"/>
 </td>
@@ -99,6 +94,11 @@ L'objectif est de proposer une stratégie d'allocation des ressources humanitair
 <td align="center">
   <strong>SciPy</strong><br>
   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/SCIPY_2.svg" width="70"/>
+</td>
+
+<td align="center">
+  <strong>SHAP</strong><br>
+  <img src="https://raw.githubusercontent.com/shap/shap/master/docs/artwork/shap.png" width="55"/>
 </td>
 
 </tr>
@@ -318,9 +318,9 @@ Exécuter les notebooks dans l'ordre : P0 → P1_main puis P1_enriched → P2 �
 
 ## Perspectives futures
 
+- Adapter le projet pour 2025 en créant des indicateur composites comme pour chaque variable on prend en compte la volatilité,la trajectoire et la dernière valeur  
 - Intégration d'indicateurs humanitaires en temps réel
 - Prévision temporelle des risques de dégradation
-- Explainable AI (XAI) pour l'interprétabilité des modèles
 - Cartographie géospatiale avancée des vulnérabilités
 - Système dynamique d'allocation de ressources
 
