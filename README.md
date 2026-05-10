@@ -98,7 +98,7 @@ L'objectif est de proposer une stratégie d'allocation des ressources humanitair
 
 <td align="center">
   <strong>SHAP</strong><br>
-  <img src="https://raw.githubusercontent.com/shap/shap/master/docs/artwork/shap.png" width="55"/>
+  <img src="https://github.com/shap/shap/raw/master/docs/artwork/shap_header.png" width="90"/>
 </td>
 
 </tr>
