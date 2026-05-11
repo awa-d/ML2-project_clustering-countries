@@ -318,7 +318,7 @@ Aucune taxonomie universelle des pays selon leur niveau de besoin humanitaire n'
 | Ndeye Ramatoulaye Ndoye Fall | [@Vimdie](https://github.com/Vimdie) |
 | Hildegarde Edima Biyenda | [@HildaEDIMA](https://github.com/HildaEDIMA) |
 
-**Encadrante académique** : [Mously Diaw](https://github.com/mouslydiaw) — Senior Machine Learning & Data Science Supervisor
+**Encadrante académique** : [Mme Mously Diaw](https://github.com/mouslydiaw) — Senior Machine Learning 
 
 ---
 
