@@ -98,7 +98,7 @@ def render():
         unsafe_allow_html=True,
     )
     fig_map = choropleth_map(df, id_col, iso_col, cluster_names=cluster_names)
-    st.plotly_chart(fig_map, use_container_width=True)
+    st.plotly_chart(fig_map, width="stretch")
 
     # ── Distribution + ACP ────────────────────────────────────────────────────
     col_left, col_right = st.columns([1, 1])
@@ -112,12 +112,12 @@ def render():
         with tab_bar:
             st.plotly_chart(
                 cluster_bar(df, cluster_names=cluster_names),
-                use_container_width=True,
+                width="stretch",
             )
         with tab_pie:
             st.plotly_chart(
                 cluster_pie(df, cluster_names=cluster_names),
-                use_container_width=True,
+                width="stretch",
             )
 
     with col_right:
@@ -130,7 +130,7 @@ def render():
             country_names=df[id_col].tolist(),
             cluster_names=cluster_names,
         )
-        st.plotly_chart(fig_pca, use_container_width=True)
+        st.plotly_chart(fig_pca, width="stretch")
 
     # ── Heatmap profils ───────────────────────────────────────────────────────
     st.markdown(
@@ -138,7 +138,7 @@ def render():
         unsafe_allow_html=True,
     )
     fig_heat = heatmap_cluster_profiles(df, feat_cols, cluster_names=cluster_names)
-    st.plotly_chart(fig_heat, use_container_width=True)
+    st.plotly_chart(fig_heat, width="stretch")
     st.caption(
         "Valeurs affichees = moyennes brutes (espace log). "
         "Couleurs = valeurs normalisees [0–1] pour comparaison inter-variables. "

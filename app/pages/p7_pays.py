@@ -114,7 +114,7 @@ def render():
         fig_bar = country_profile_chart(
             country_vals, cluster_mean, feat_cols, selected, cluster_name,
         )
-        st.plotly_chart(fig_bar, use_container_width=True)
+        st.plotly_chart(fig_bar, width="stretch")
         st.caption(
             "Valeurs dans l'espace original (log-transforme). "
             "Comparaison directe avec la moyenne du cluster d'appartenance."
@@ -145,7 +145,7 @@ def render():
     similar_df.insert(0, "Distance (espace scale)", np.round(similar_dist, 4))
     st.dataframe(
         similar_df.set_index(id_col).round(3),
-        use_container_width=True,
+        width="stretch",
         height=340,
     )
     st.caption(
@@ -168,7 +168,7 @@ def render():
                 ],
                 axis=1,
             ),
-            use_container_width=True,
+            width="stretch",
             height=380,
         )
         st.caption(f"La ligne {selected} est mise en evidence en bleu.")
@@ -179,7 +179,7 @@ def render():
         unsafe_allow_html=True,
     )
     fig_map = choropleth_map(df, id_col, iso_col, cluster_names=cluster_names)
-    st.plotly_chart(fig_map, use_container_width=True)
+    st.plotly_chart(fig_map, width="stretch")
     st.caption(
         f"{selected} appartient au Cluster {cluster_id} ({cluster_name}). "
         "Passez la souris sur les pays pour voir leur nom et leur cluster."

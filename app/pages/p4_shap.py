@@ -97,7 +97,7 @@ def render():
                 feat_cols, rf.feature_importances_,
                 title="Importance RF (shap non disponible)",
             )
-        st.plotly_chart(fig_fi, use_container_width=True)
+        st.plotly_chart(fig_fi, width="stretch")
 
     with col_pca:
         st.markdown(f"<p class='section-header'>Projection ACP</p>",
@@ -105,7 +105,7 @@ def render():
         fig_pca = pca_scatter(X, y,
                               country_names=df[id_col].tolist(),
                               cluster_names=cluster_names)
-        st.plotly_chart(fig_pca, use_container_width=True)
+        st.plotly_chart(fig_pca, width="stretch")
 
     # ── SHAP par cluster ──────────────────────────────────────────────────────
     if shap_vals is not None:
@@ -144,7 +144,7 @@ def render():
                         feat_cols, mean_abs_c,
                         title=f"|SHAP| moyen — {cname}",
                     )
-                    st.plotly_chart(fig_c, use_container_width=True)
+                    st.plotly_chart(fig_c, width="stretch")
 
                 with col_tbl:
                     st.caption("Top pays — contribution SHAP la plus forte :")
@@ -155,7 +155,7 @@ def render():
                     top_df["Cluster"]         = top_df["cluster"].map(cluster_names)
                     top_df["|SHAP| total"]    = np.round(total_shap[top_idx], 4)
                     top_df = top_df.drop(columns="cluster")
-                    st.dataframe(top_df.set_index(id_col), use_container_width=True,
+                    st.dataframe(top_df.set_index(id_col), width="stretch",
                                  height=320)
     else:
         st.warning(

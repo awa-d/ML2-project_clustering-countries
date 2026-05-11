@@ -280,7 +280,7 @@ with st.sidebar:
                 unsafe_allow_html=True,
             )
         else:
-            clicked = st.button(label, key=f"nav_{label}", use_container_width=True)
+            clicked = st.button(label, key=f"nav_{label}", width="stretch")
             if clicked:
                 st.session_state.page = label
                 st.rerun()

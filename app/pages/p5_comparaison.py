@@ -37,7 +37,7 @@ def render():
         df_metrics.style
             .highlight_max(axis=1, color="#d4edda")
             .highlight_min(axis=1, color="#f8d7da"),
-        use_container_width=True,
+        width="stretch",
     )
     st.caption(
         "Silhouette : plus eleve = meilleure coherence intra-cluster. "
@@ -51,7 +51,7 @@ def render():
 
     fig_metrics = metrics_comparison_bar(compare_cls, compare_enr,
                                          "Classique (k=3)", "Enrichi FSI (k=4)")
-    st.plotly_chart(fig_metrics, use_container_width=True)
+    st.plotly_chart(fig_metrics, width="stretch")
 
     # ── ACP cote a cote ────────────────────────────────────────────────────────
     st.markdown(f"<p class='section-header'>Projections ACP (2D)</p>", unsafe_allow_html=True)
@@ -66,7 +66,7 @@ def render():
             cluster_names=d_cls["cluster_names"],
             title="ACP — Classique",
         )
-        st.plotly_chart(fig_pca_cls, use_container_width=True)
+        st.plotly_chart(fig_pca_cls, width="stretch")
 
     with col_r:
         n_pays2 = d_enr["df"][d_enr["id_col"]].nunique()
@@ -77,7 +77,7 @@ def render():
             cluster_names=d_enr["cluster_names"],
             title="ACP — Enrichi FSI",
         )
-        st.plotly_chart(fig_pca_enr, use_container_width=True)
+        st.plotly_chart(fig_pca_enr, width="stretch")
 
     # ── Taille des clusters ────────────────────────────────────────────────────
     st.markdown(f"<p class='section-header'>Taille des clusters</p>", unsafe_allow_html=True)
@@ -87,13 +87,13 @@ def render():
         st.caption("Classique (k=3)")
         st.plotly_chart(
             cluster_bar(d_cls["df"], cluster_names=d_cls["cluster_names"]),
-            use_container_width=True,
+            width="stretch",
         )
     with col_r2:
         st.caption("Enrichi FSI (k=4)")
         st.plotly_chart(
             cluster_bar(d_enr["df"], cluster_names=d_enr["cluster_names"]),
-            use_container_width=True,
+            width="stretch",
         )
 
     # ── Profils moyens ─────────────────────────────────────────────────────────
@@ -106,14 +106,14 @@ def render():
         st.plotly_chart(
             heatmap_cluster_profiles(d_cls["df"], d_cls["feat_cols"],
                                      cluster_names=d_cls["cluster_names"]),
-            use_container_width=True,
+            width="stretch",
         )
     with col_h2:
         st.caption("Enrichi FSI")
         st.plotly_chart(
             heatmap_cluster_profiles(d_enr["df"], d_enr["feat_cols"],
                                      cluster_names=d_enr["cluster_names"]),
-            use_container_width=True,
+            width="stretch",
         )
 
     # ── Migration pays entre modeles ──────────────────────────────────────────
@@ -184,7 +184,7 @@ Un pays est donc comptabilisé comme "migrant" uniquement lorsqu'il bascule d'un
                     "cluster_enrichi":   "Cluster enrichi",
                     "nom_enrichi":       "Nom enrichi",
                 }),
-                use_container_width=True,
+                width="stretch",
                 height=320,
             )
 

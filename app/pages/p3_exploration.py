@@ -110,7 +110,7 @@ def render():
         axis=1,
     ).round(3)
     st.dataframe(stats.style.background_gradient(cmap="Blues", axis=0),
-                 use_container_width=True)
+                 width="stretch")
 
     # ── Radar + Boxplot ───────────────────────────────────────────────────────
     col_radar, col_box = st.columns([1.2, 1])
@@ -120,14 +120,14 @@ def render():
                     unsafe_allow_html=True)
         radar_cols = feat_cols[:8] if len(feat_cols) > 8 else feat_cols
         fig_radar  = radar_chart(df, radar_cols, cluster_names=cluster_names)
-        st.plotly_chart(fig_radar, use_container_width=True)
+        st.plotly_chart(fig_radar, width="stretch")
 
     with col_box:
         st.markdown(f"<p class='section-header'>Distribution par cluster</p>",
                     unsafe_allow_html=True)
         var = st.selectbox("Variable", feat_cols, key="box_var")
         fig_box = boxplot_variable(df, var, cluster_names=cluster_names)
-        st.plotly_chart(fig_box, use_container_width=True)
+        st.plotly_chart(fig_box, width="stretch")
 
     # ── Pays du cluster ───────────────────────────────────────────────────────
     st.markdown(
@@ -141,7 +141,7 @@ def render():
 
     st.dataframe(
         c_countries[display_cols].set_index(id_col).round(3),
-        use_container_width=True,
+        width="stretch",
         height=320,
     )
 
@@ -156,7 +156,7 @@ def render():
         cluster_names=cluster_names,
         title=f"ACP — Cluster {cluster_id} ({cname}) mis en evidence",
     )
-    st.plotly_chart(fig_pca, use_container_width=True)
+    st.plotly_chart(fig_pca, width="stretch")
 
     # ── Carte ─────────────────────────────────────────────────────────────────
     st.markdown(
@@ -164,7 +164,7 @@ def render():
         unsafe_allow_html=True,
     )
     fig_map = choropleth_map(df, id_col, iso_col, cluster_names=cluster_names)
-    st.plotly_chart(fig_map, use_container_width=True)
+    st.plotly_chart(fig_map, width="stretch")
     st.caption(
         f"Cluster {cluster_id} ({cname}) mis en evidence. "
         "Passez la souris sur les pays pour voir leur nom et cluster."
