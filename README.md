@@ -188,7 +188,7 @@ clustering_countries/
 │   ├── P1_EDA_main.ipynb
 │   ├── P1_EDA_enriched.ipynb
 │   ├── P2_modeling.ipynb
-│   └── P5_interpretation.ipynb
+│   └── P3_interpretation.ipynb
 │
 ├── outputs/
 │   ├── figures/
