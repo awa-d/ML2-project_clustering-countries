@@ -100,7 +100,7 @@ def render():
     st.divider()
 
     # ── Profil vs cluster ──────────────────────────────────────────────────────
-    tab_bar, tab_radar = st.tabs(["Comparaison barres", "Radar normalise"])
+    tab_bar, = st.tabs(["Comparaison barres"])
 
     cluster_df   = df[df["cluster"] == cluster_id]
     cluster_mean = cluster_df[feat_cols].mean().values
@@ -120,19 +120,7 @@ def render():
             "Comparaison directe avec la moyenne du cluster d'appartenance."
         )
 
-    with tab_radar:
-        st.markdown(
-            f"<p class='section-header'>Forme du profil — {selected} vs cluster {cluster_id}</p>",
-            unsafe_allow_html=True,
-        )
-        radar_cols = feat_cols[:8] if len(feat_cols) > 8 else feat_cols
-        fig_radar  = country_radar_chart(
-            row[radar_cols].values.astype(float),
-            cluster_df[radar_cols].mean().values,
-            radar_cols, selected, cluster_name,
-        )
-        st.plotly_chart(fig_radar, use_container_width=True)
-        st.caption("Valeurs normalisees [0–1] pour comparaison des formes de profil.")
+    
 
     # ── Pays similaires ───────────────────────────────────────────────────────
     st.markdown(
