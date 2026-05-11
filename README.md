@@ -8,15 +8,35 @@
 
 ---
 
-## 🌍 Dashboard interactif
+## Dashboard interactif
 
-> Accédez à l'application de visualisation des clusters :
+### Aperçu du Dashboard
+
+<table>
+  <tr>
+    <td><img src="images/dash1.jpeg" width="100%"/></td>
+    <td><img src="images/dash2.jpeg" width="100%"/></td>
+    <td><img src="images/dash3.jpeg" width="100%"/></td>
+  </tr>
+  <tr>
+    <td><img src="images/dash4.jpeg" width="100%"/></td>
+    <td><img src="images/dash5.jpeg" width="100%"/></td>
+    <td><img src="images/dash6.jpeg" width="100%"/></td>
+  </tr>
+  <tr>
+    <td><img src="images/dash7.jpeg" width="100%"/></td>
+    <td><img src="images/dash8.jpeg" width="100%"/></td>
+    <td><img src="images/dash9.jpeg" width="100%"/></td>
+  </tr>
+</table>
+
+## Accédez à l'application de visualisation des clusters :
 >
 > **[Lancer le Dashboard SigmaPulse](https://sigmapulse-ensae.onrender.com/)**
 
 ---
 
-## 📄 Documentation & Rapports
+## Documentation & Rapports
 
 | Document | Description | Format |
 |---|---|---|
