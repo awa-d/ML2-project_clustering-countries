@@ -138,6 +138,21 @@ def render():
     )
     migres = df_m[df_m["cluster_classique"] != df_m["cluster_enrichi"]]
 
+    #  Définition du dictionnaire de correspondance par mapping Manuel
+    # On réaligne les IDs du modèle enrichi pour qu'ils correspondent au classique
+    mapping_enrichi = {
+        3: 0,  # "Developpes stables" devient ID 0
+        0: 1,  # "Intermediaires vulnerables" devient ID 1
+        1: 2,  # "Crise VIH" devient ID 2 (Prioritaires)
+        2: 2   # "Etats fragiles" devient ID 2 (Prioritaires)
+    }
+
+    #  Application du mapping sur une nouvelle colonne technique
+    df_m["cluster_enrichi_realigne"] = df_m["cluster_enrichi"].map(mapping_enrichi)
+
+    #  Calcul de la migration sur les IDs réalignés
+    migres = df_m[df_m["cluster_classique"] != df_m["cluster_enrichi_realigne"]]
+
     col_stat, col_tbl = st.columns([1, 2])
     with col_stat:
         st.metric("Pays ayant change de cluster", len(migres))
@@ -147,9 +162,14 @@ def render():
             <div style="background:#F8FAFF;border-radius:10px;padding:14px;
                         margin-top:12px;font-size:0.84rem;color:#475569;
                         box-shadow:0 1px 2px rgba(0,0,0,0.04);">
-              Un changement peut refleter une vraie migration semantique (ex. pays
-              passant de "Intermediaires" a "Etats fragiles") ou un simple swap de
-              label numerique sans changement de groupe reel.
+              Pour comparer les deux modélisations, nous appliquons un mapping  visant à harmoniser les segments.
+
+Le principe repose sur l'alignement des nouveaux clusters sur les strates socio-économiques initiales :
+
+* Le pôle de richesse est stabilisé comme référent commun.
+* Les scissions observées dans le pôle de pauvreté (distinction entre fragilité étatique et crises sanitaires) sont traitées comme une stabilité de profil.
+
+Un pays est donc comptabilisé comme "migrant" uniquement lorsqu'il bascule d'une strate à une autre, garantissant que le volume de migrations affiché reflète une dynamique de développement réelle et non une instabilité statistique.
             </div>
             """,
             unsafe_allow_html=True,
