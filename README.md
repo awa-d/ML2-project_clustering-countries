@@ -67,7 +67,7 @@ L'objectif est de proposer une stratégie d'allocation des ressources humanitair
 
 ## Vision du projet
 
-> *« L'aide humanitaire de demain ne peut plus reposer uniquement sur des intuitions géopolitiques. Avec des ressources limitées, chaque décision d'allocation compte. SigmaPulse mobilise la puissance du Machine Learning pour transformer des indicateurs macro-économiques et humanitaires complexes en une stratégie d'allocation rigoureuse, éthique et data-driven. »*
+> *« L'aide humanitaire de demain, ne peut plus reposer uniquement sur des intuitions géopolitiques. Avec des ressources limitées, chaque décision d'allocation compte. SigmaPulse mobilise la puissance du Machine Learning pour transformer des indicateurs macro-économiques et humanitaires complexes en une stratégie d'allocation rigoureuse, éthique et data-driven. »*
 >
 > — Équipe SigmaPulse
 
