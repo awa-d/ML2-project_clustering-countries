@@ -1,4 +1,5 @@
 import pandas as pd
+import plotly.express as px
 import streamlit as st
 
 from components.charts import (
@@ -231,6 +232,86 @@ Un pays est donc comptabilisé comme "migrant" uniquement lorsqu'il bascule d'un
                 width="stretch",
                 height=320,
             )
+
+    # ── Carte interactive des migrations ─────────────────────────────────────
+    st.markdown(
+        f"<p class='section-header'>Carte des flux migratoires</p>",
+        unsafe_allow_html=True,
+    )
+
+    df_map_mg = df_m.copy()
+    df_map_mg["statut"] = "Stable"
+    _mask = df_map_mg["cluster_classique"] != df_map_mg["cluster_enrichi_realigne"]
+    df_map_mg.loc[_mask, "statut"] = (
+        df_map_mg.loc[_mask, "nom_classique"] + " → " +
+        df_map_mg.loc[_mask, "nom_enrichi"]
+    )
+
+    df_map_mg = df_map_mg.merge(
+        d_enr["df"][[d_enr["id_col"], d_enr["iso_col"]]].rename(
+            columns={d_enr["id_col"]: id_cls, d_enr["iso_col"]: "_iso3"}
+        ),
+        on=id_cls,
+        how="left",
+    )
+
+    _MIG_COLORS = {
+        "Stable":                                      "#D9D9D9",
+        "Intermediaires → Developpes stables":         "#2ca02c",
+        "Prioritaires → Intermediaires vulnerables":   "#bcbd22",
+        "Developpes → Intermediaires vulnerables":     "#1f77b4",
+        "Intermediaires → Crise VIH":                  "#d62728",
+        "Intermediaires → Etats fragiles":             "#ff7f0e",
+        "Developpes → Etats fragiles":                 "#8c564b",
+        "Developpes → Crise VIH":                      "#9467bd",
+        "Prioritaires → Developpes stables":           "#17becf",
+    }
+
+    fig_map_mg = px.choropleth(
+        df_map_mg,
+        locations="_iso3",
+        color="statut",
+        hover_name=id_cls,
+        hover_data={
+            "nom_classique": True,
+            "nom_enrichi":   True,
+            "statut":        False,
+            "_iso3":         False,
+        },
+        color_discrete_map=_MIG_COLORS,
+        labels={
+            "statut":        "Flux",
+            "nom_classique": "Strate classique",
+            "nom_enrichi":   "Strate enrichie",
+        },
+        category_orders={"statut": list(_MIG_COLORS.keys())},
+    )
+    fig_map_mg.update_layout(
+        height=460,
+        margin=dict(l=0, r=0, t=10, b=0),
+        paper_bgcolor="rgba(0,0,0,0)",
+        geo=dict(
+            showframe=False,
+            showcoastlines=True,
+            projection_type="natural earth",
+            landcolor="#F8FAFF",
+            bgcolor="rgba(0,0,0,0)",
+        ),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.22,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=10),
+            title_text="",
+        ),
+    )
+    st.plotly_chart(fig_map_mg, width="stretch")
+    st.caption(
+        "Les pays gris sont stables entre les deux modeles. "
+        "Survolez un pays pour afficher son flux de transition."
+    )
 
     # ── Analyse des migrations ────────────────────────────────────────────────
     st.markdown(f"<p class='section-header'>Analyse des flux migratoires entre modeles</p>",
