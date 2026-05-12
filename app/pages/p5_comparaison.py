@@ -96,13 +96,8 @@ def render():
             """
             <div style="font-size:0.83rem;color:#475569;background:#F8FAFF;
                         border-radius:8px;padding:12px;margin-top:4px;">
-            PC1 synthétise le gradient de développement humain global : les variables
-            gdpp_log et life_expec pointent vers la gauche (pôle développé), tandis que
-            child_mort_log et total_fer pointent vers la droite (pôle vulnérable). Les
-            flèches opposées confirment leur corrélation négative forte. PC2 capte une
-            dimension orthogonale liée aux échanges commerciaux : exports_log et imports_log
-            se distinguent sur cet axe. Les flèches courtes (inflation_log) indiquent des
-            variables dont la variance est distribuée sur des composantes tardives.
+            PC1 définit un gradient de développement socio-économique. On observe une corrélation positive forte de gdpp (log) et life_expec avec cet axe, s'opposant structurellement à child_mort (log) et total_fer. Ainsi, les pays à haut revenu et forte longévité se situent sur la droite du plan, tandis que les pays marqués par une précarité sanitaire se positionnent sur la gauche. L'alignement presque diamétral de life_expec et child_mort (log) confirme  leur corrélation négative intense.
+            PC2 est porté par les dynamiques d'ouverture commerciale. Les variables exports (log) et imports (log) saturent positivement cet axe. Cette dimension est orthogonale à PC1, ce qui suggère que l'intensité des échanges extérieurs d'un pays est un phénomène indépendant de son niveau de développement humain intrinsèque.
             </div>
             """,
             unsafe_allow_html=True,
