@@ -119,14 +119,10 @@ def render():
             """
             <div style="font-size:0.83rem;color:#475569;background:#F8FAFF;
                         border-radius:8px;padding:12px;margin-top:4px;">
-            PC1 (≈ 50 % de variance) reste un axe de développement renforcé : gdpp_log,
-            physicians_per_1000 et social_schooling_log forment un faisceau opposé à
-            child_mort_log et social_poverty_2_15_log. La nouveauté est PC2 : hiv_prevalence_log
-            se distingue des autres variables par une direction quasi-orthogonale à l'axe de
-            développement, de même que refugees_idps. Cette orthogonalité révèle que la
-            prévalence VIH et les déplacements de populations sont partiellement indépendants
-            du niveau de revenu — c'est précisément ce signal que k=4 exploite pour
-            séparer deux formes de vulnérabilité que le modèle classique confondait.
+                -  L'axe PC1, capturant 50,5 pourcent de la variance, structure l'opposition fondamentale entre les indicateurs de santé et d'éducation (droite) et les marqueurs de précarité socio-économique et sécuritaire (gauche). On observe un faisceau particulièrement dense à gauche regroupant la mortalité infantile, la pauvreté, la sous-nutrition, mais aussi les griefs de groupe et l'appareil sécuritaire.
+                - L'analyse de l'orthogonalité doit être plus nuancée sur PC2 (15,1 %). Contrairement à une indépendance totale, hiv_prevalence et refugees_idps possèdent des coordonnées négatives non négligeables sur PC1. Ces variables ne sont donc pas strictement orthogonales au développement, mais sont portées majoritairement par PC2. La prévalence du VIH se détache par une forte composante positive sur cet axe vertical, s'opposant ainsi aux variables de longévité et de densité médicale situées dans le cadran inférieur droit.
+                 Cette configuration indique que si les crises sanitaires et les déplacements de population sont corrélés à la pauvreté (projection sur PC1), leur intensité spécifique est captée par PC2.
+            > <b> C'est ce signal résiduel que la partition en k=4 parvient à isoler</b>. Le modèle ne se contente pas de séparer le "riche" du "pauvre", mais distingue, au sein des nations vulnérables, celles qui font face à une surcharge de crises exogènes (VIH, réfugiés) de celles dont la fragilité est plus purement structurelle et économique.
             </div>
             """,
             unsafe_allow_html=True,
@@ -241,6 +237,78 @@ Un pays est donc comptabilisé comme "migrant" uniquement lorsqu'il bascule d'un
                 height=320,
             )
 
+    # ── Analyse des migrations ────────────────────────────────────────────────
+    st.markdown(f"<p class='section-header'>Analyse des flux migratoires entre modeles</p>",
+                unsafe_allow_html=True)
+    st.markdown(
+        f"""
+        <div style="font-size:0.87rem;color:#475569;line-height:1.70;
+                    background:#F8FAFF;border-radius:10px;padding:20px 24px;
+                    margin-top:8px;border-left:3px solid {SECONDARY};
+                    box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+        Sur les 167 pays alignes entre les deux modelisations, 129 conservent la meme
+        strate socio-economique, soit un taux de stabilite de 82 %. Ce resultat valide
+        la coherence fondamentale entre les deux partitions : l'ajout de dix variables
+        supplementaires — indicateurs de sante granulaires, variables sociales et
+        indicateurs FSI — n'a pas redessine la geographie globale du developpement,
+        mais resolu des ambiguites que les seules huit variables classiques ne permettaient
+        pas de trancher. Les 28 transitions s'organisent en quatre mouvements distincts.
+
+        Huit pays intermediaires rejoignent le pole des pays developpes stables. Pour les
+        quatre monarchies du Golfe — Qatar, Emirats arabes unis, Koweit et Oman —, le
+        modele classique sous-estimait leur profil en raison d'indicateurs sanitaires et de
+        developpement humain inferieurs au seuil des nations industrialisees. Les variables
+        FSI introduites dans le modele enrichi revelent une stabilite institutionnelle
+        remarquable : leurs scores d'appareil securitaire, de griefs de groupe et de flux
+        de refugies sont parmi les plus faibles du dataset, ce qui suffit a les rapprocher
+        du centroide developpe. L'Argentine, le Chili, l'Uruguay et la Roumanie forment un
+        second sous-groupe : leur inflation historiquement elevee penalisait leur
+        positionnement classique, tandis que leurs indicateurs sociaux — scolarisation,
+        taux de pauvrete — et leur profil FSI s'alignent sur le pole stable une fois pris
+        en compte.
+
+        Sept pays developpes sont reclasses en intermediaires vulnerables. Bosnia-Herzegovine,
+        Montenegro et Serbie portent les traces institutionnelles des conflits des annees 1990,
+        visibles dans leurs scores FSI mais invisibles dans le PIB ou l'esperance de vie.
+        Le Liban represente le cas le plus instructif : ses indicateurs macro et sanitaires
+        historiques le rangeaient parmi les pays avances, mais la conjonction d'une crise
+        financiere structurelle, d'un score d'appareil securitaire eleve et de griefs
+        communautaires persistants le deplace vers le segment intermediaire vulnerable des
+        que ces dimensions entrent dans le modele. Israel, les Maldives et Panama completent
+        ce groupe, chacun portant une asymetrie entre niveau de vie et profil de resilience
+        institutionnelle ou sociale.
+
+        Sept pays intermediaires sont redistribues vers les strates prioritaires. Botswana,
+        Gabon et Namibie rejoignent le cluster Crise VIH — non pas par degradation de leurs
+        indicateurs economiques, mais parce que la variable hiv_prevalence, absente du modele
+        classique, enregistre pour ces trois pays des prevalences superieures a 8 %, les
+        isolant structurellement dans une region distincte de l'espace multivariable. Cette
+        variable est un indicateur WDI de sante, pas un indicateur FSI. L'Irak et l'Ukraine
+        sont absorbes dans les Etats fragiles : leurs scores FSI d'appareil securitaire et
+        d'intervention exterieure atteignent des niveaux caracteristiques de zones de conflit
+        actif, une information totalement absente du modele a huit variables. Les Iles Salomon
+        et la Guinee Equatoriale completent ce groupe pour des raisons d'instabilite
+        institutionnelle que leurs indicateurs macro masquaient.
+
+        Enfin, six pays initialement classes en Prioritaires remontent vers les Intermediaires
+        vulnerables. Senegal, Nepal, Timor-Leste, Comores, Myanmar et Tadjikistan presentent
+        des indicateurs macroeconomiques degrades qui les faisaient apparaitre aussi critiques
+        que les Etats les plus fragilises du dataset. L'elargissement de la base variable
+        nuance ce diagnostic : leurs scores de fragilite institutionnelle et leurs indicateurs
+        sociaux les distinguent suffisamment de leurs voisins en Crise VIH ou en situation
+        d'effondrement etatique pour justifier une strate distincte.
+
+        La lecture d'ensemble confirme que l'enrichissement des nouvelles variable ne
+        reecrit pas la carte mondiale, mais il corrige les deux zones d'ambiguite du modele
+        classique — la frontiere entre Developpes et Intermediaires, la ou la stabilite
+        institutionnelle peut soit disqualifier soit promouvoir un pays ; et la frontiere
+        entre Intermediaires et Prioritaires, la ou la prevalence du VIH ou la fragilite
+        etatique cree une rupture qui ne se manifeste pas dans les indicateurs economiques bruts.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
     # ── Synthese ──────────────────────────────────────────────────────────────
     st.markdown(f"<p class='section-header'>Synthese comparative</p>", unsafe_allow_html=True)
 
@@ -273,7 +341,7 @@ Un pays est donc comptabilisé comme "migrant" uniquement lorsqu'il bascule d'un
                       Davies-Bouldin : <strong>{metrics['Davies-Bouldin']}</strong>
                     </li>
                     <li style="color:#475569;font-size:0.85rem;">
-                      Equilibre : <strong>{metrics['Equilibre (min/max)']}</strong>
+                      Equilibre  (min/max)  : <strong>{metrics['Equilibre (min/max)']}</strong>
                     </li>
                   </ul>
                   <strong style="color:#0F172A;font-size:0.85rem;">Clusters :</strong>

@@ -212,7 +212,7 @@ st.markdown(
 # ── Imports pages ─────────────────────────────────────────────────────────────
 from pages import (
     p1_about, p2_vue_globale, p3_exploration,
-    p4_shap, p5_comparaison, p6_documentation, p7_pays,
+    p4_shap, p5_comparaison, p6_documentation, p7_pays, p8_conclusion,
 )
 
 # ── Pages ─────────────────────────────────────────────────────────────────────
@@ -223,6 +223,7 @@ NAV_ITEMS = [
     ("Analyse d'un pays",        "search",           p7_pays.render,         "Analyse"),
     ("Interpretabilite SHAP",    "cpu",              p4_shap.render,         "Analyse"),
     ("Comparaison des modeles",  "bar-chart-line",   p5_comparaison.render,  "Resultats"),
+    ("Conclusion",               "flag",             p8_conclusion.render,   "Resultats"),
     ("Documentation",            "book",             p6_documentation.render,"Resultats"),
 ]
 
