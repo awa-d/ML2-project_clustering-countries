@@ -38,7 +38,7 @@ MODELS_META = {
         "feat_cols":   FEAT_K3,
     },
     "Modele enrichi": {
-        "label":       "Modele enrichi (FSI)",
+        "label":       "Modele enrichi",
         "description": "Clustering sur 14 variables incluant 4 indicateurs FSI de fragilite etatique.",
         "features":    14,
         "k":           4,

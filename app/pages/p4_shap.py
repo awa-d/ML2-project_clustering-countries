@@ -44,16 +44,43 @@ def render():
         f"<h2 style='color:{PRIMARY};margin-bottom:4px;'>Interpretabilite</h2>",
         unsafe_allow_html=True,
     )
-    st.caption(
-        "Un modele Random Forest proxy est entraine a reproduire les labels de cluster. "
-        "SHAP (SHapley Additive exPlanations) quantifie la contribution de chaque variable "
-        "a l'appartenance aux clusters."
+
+    st.markdown(
+        f"""
+        <div style="background:#F8FAFF;border-radius:10px;padding:16px 20px;
+                    margin-bottom:20px;border-left:3px solid {SECONDARY};
+                    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+                    font-size:0.88rem;color:#475569;line-height:1.65;">
+        Le clustering KMeans est un algorithme non supervise : il produit des groupes
+        mais ne fournit pas de coefficients indiquant pourquoi chaque pays appartient
+        a tel ou tel cluster. Pour rendre la partition interpretable, on passe par un
+        modele surrogat.
+
+        Le principe est le suivant. On entraine un Random Forest a reproduire les labels
+        attribues par KMeans, en utilisant les memes variables d'entree. Le Random Forest
+        apprend ainsi a imiter la logique de partition. Sa precision elevee sur les donnees
+        d'entrainement confirme qu'il replique fidelement la structure KMeans.
+
+        On applique ensuite SHAP (SHapley Additive exPlanations) sur ce Random Forest.
+        SHAP est une methode issue de la theorie des jeux cooperatifs : pour chaque pays
+        et chaque variable, il calcule combien cette variable a contribue a pousser le
+        pays vers son cluster plutot que vers un autre. Un SHAP positif signifie que la
+        variable a favorise l'appartenance au cluster ; un SHAP negatif qu'elle l'a
+        defavorisee. La valeur absolue mesure l'intensite de cette contribution.
+
+        Ce cadre permet deux lectures complementaires : une lecture globale, qui identifie
+        les variables les plus discriminantes entre tous les clusters ; et une lecture par
+        cluster, qui explique ce qui caracterise structurellement chaque groupe et le
+        distingue des autres.
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
     model_key = st.radio(
         "Modele source",
         ["Modele classique", "Modele enrichi"],
-        format_func=lambda k: "Classique (8 var.)" if k == "Modele classique" else "Enrichi FSI (14 var.)",
+        format_func=lambda k: "Classique " if k == "Modele classique" else "Enrichi",
         horizontal=True,
         label_visibility="visible",
     )
@@ -167,11 +194,27 @@ def render():
     st.markdown(f"<p class='section-header'>Lecture des resultats</p>",
                 unsafe_allow_html=True)
     st.markdown(
-        """
-        - **Importance elevee** : la variable discrimine fortement les clusters — c'est un critere structurant du modele.
-        - **SHAP eleve pour un cluster** : la variable pousse vers l'appartenance a ce cluster.
-        - Pour le modele enrichi, les indicateurs FSI (`security_apparatus`, `refugees_idps`, etc.)
-          apparaissent avec une importance distincte, justifiant leur ajout pour une segmentation institutionnelle.
-        - Les variables sanitaires (`child_mort_log`, `life_expec`) dominent dans le modele classique.
-        """
+        f"""
+        <div style="font-size:0.87rem;color:#475569;line-height:1.65;">
+        Une importance SHAP elevee pour une variable signifie qu'elle contribue
+        fortement a distinguer les clusters entre eux.
+        du modele. Une variable avec une importance faible est presente dans les donnees
+        mais n'est pas determinante pour expliquer la partition obtenue.
+
+        La lecture par cluster precise la direction de la contribution. Sur le
+        graphique d'importance par cluster, une variable avec un SHAP moyen eleve
+        est celle qui pousse le plus les pays vers ce cluster plutot que vers les autres.
+        Dans le tableau associe, les pays avec le SHAP total le plus eleve sont ceux
+        dont la classification est la plus nettement determinee par les variables
+        disponibles — a l'inverse, les pays avec un SHAP total faible sont des cas
+        limites, proches de la frontiere entre deux clusters.
+
+        Pour le modele enrichi, les indicateurs FSI apparaissent avec une importance
+        distincte pour les clusters Etats fragiles et Crise VIH. C'est la validation
+        empirique de l'hypothese centrale du projet : les variables de fragilite
+        institutionnelle et epidemiologique apportent une information que les donnees
+        socio-economiques classiques ne contenaient pas.
+        </div>
+        """,
+        unsafe_allow_html=True,
     )

@@ -360,6 +360,86 @@ def metrics_comparison_bar(metrics_a: dict, metrics_b: dict,
     return fig
 
 
+# ── Cercle de corrélation ACP ─────────────────────────────────────────────────
+
+def pca_correlation_circle(X_scaled: np.ndarray, feat_cols: list,
+                            title: str = "Cercle de corrélation — ACP") -> go.Figure:
+    pca      = PCA(n_components=min(len(feat_cols), X_scaled.shape[0]), random_state=42)
+    X_pca    = pca.fit_transform(X_scaled)
+    ve       = pca.explained_variance_ratio_
+
+    n_feat   = len(feat_cols)
+    corr_mat = np.corrcoef(X_scaled.T, X_pca.T)
+    coords   = corr_mat[:n_feat, n_feat:n_feat + 2]
+
+    fig = go.Figure()
+
+    theta = np.linspace(0, 2 * np.pi, 300)
+    fig.add_trace(go.Scatter(
+        x=np.cos(theta), y=np.sin(theta),
+        mode="lines",
+        line=dict(color=_BORDER, width=1.5),
+        showlegend=False, hoverinfo="skip",
+    ))
+    fig.add_hline(y=0, line_color=_BORDER, line_width=1)
+    fig.add_vline(x=0, line_color=_BORDER, line_width=1)
+
+    palette = [
+        "#4F46E5", "#059669", "#DC2626", "#D97706", "#7C3AED",
+        "#0891B2", "#BE185D", "#15803D", "#B45309", "#1D4ED8",
+        "#9333EA", "#C2410C", "#0F766E", "#7E22CE", "#A16207",
+    ]
+    for j, feat in enumerate(feat_cols):
+        xc, yc = float(coords[j, 0]), float(coords[j, 1])
+        col = palette[j % len(palette)]
+        fig.add_trace(go.Scatter(
+            x=[0, xc], y=[0, yc],
+            mode="lines+markers",
+            line=dict(color=col, width=2),
+            marker=dict(size=[0, 8], color=col,
+                        symbol=["circle", "arrow-bar-up"],
+                        angleref="previous"),
+            name=feat,
+            hovertemplate=(
+                f"<b>{feat}</b><br>"
+                f"PC1 : {xc:.3f}<br>"
+                f"PC2 : {yc:.3f}<br>"
+                f"Qualite : {(xc**2+yc**2):.3f}<extra></extra>"
+            ),
+        ))
+        offset_x = 0.08 if xc >= 0 else -0.08
+        offset_y = 0.08 if yc >= 0 else -0.08
+        label = feat.replace("_log", "").replace("social_", "").replace("_", " ")
+        fig.add_annotation(
+            x=xc + offset_x, y=yc + offset_y,
+            text=label, showarrow=False,
+            font=dict(size=9, color=col),
+            xanchor="center", yanchor="middle",
+        )
+
+    fig.update_layout(
+        title=dict(text=title, font=dict(color=PRIMARY, size=13)),
+        xaxis=dict(
+            range=[-1.35, 1.35], zeroline=False, showgrid=False,
+            title=f"PC1 ({ve[0]*100:.1f} % de variance)",
+            tickfont=dict(size=10, color=_MUTED),
+            scaleanchor="y", scaleratio=1,
+        ),
+        yaxis=dict(
+            range=[-1.35, 1.35], zeroline=False, showgrid=False,
+            title=f"PC2 ({ve[1]*100:.1f} % de variance)",
+            tickfont=dict(size=10, color=_MUTED),
+        ),
+        showlegend=False,
+        plot_bgcolor="white",
+        paper_bgcolor=_BG,
+        font=dict(color=_TEXT),
+        height=480,
+        margin=dict(l=10, r=10, t=40, b=10),
+    )
+    return fig
+
+
 # ── Profil pays vs cluster ────────────────────────────────────────────────────
 
 def country_profile_chart(country_vals: np.ndarray, cluster_mean: np.ndarray,

@@ -22,9 +22,9 @@ def render():
         "Modele",
         ["Modele classique", "Modele enrichi"],
         format_func=lambda k: (
-            "Modele classique — 8 variables socio-economiques · k = 3 clusters"
+            "Modele classique - k = 3 clusters"
             if k == "Modele classique" else
-            "Modele enrichi FSI — 14 variables · k = 4 clusters"
+            "Modele enrichi - k = 4 clusters"
         ),
         horizontal=True,
         label_visibility="collapsed",
@@ -142,5 +142,5 @@ def render():
     st.caption(
         "Valeurs affichees = moyennes brutes (espace log). "
         "Couleurs = valeurs normalisees [0–1] pour comparaison inter-variables. "
-        "RdYlGn : vert = valeur elevee, rouge = valeur basse."
+        "couleurs : vert = valeur elevee, rouge = valeur basse."
     )

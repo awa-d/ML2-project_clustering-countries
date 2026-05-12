@@ -3,6 +3,7 @@ import streamlit as st
 
 from components.charts import (
     pca_scatter, cluster_bar, metrics_comparison_bar, heatmap_cluster_profiles,
+    pca_correlation_circle,
 )
 from data_loader import get_both_labeled, compute_metrics
 from config import PRIMARY, SECONDARY, ACCENT, MODELS_META
@@ -78,6 +79,58 @@ def render():
             title="ACP — Enrichi FSI",
         )
         st.plotly_chart(fig_pca_enr, width="stretch")
+
+    # ── Cercles de corrélation ────────────────────────────────────────────────
+    st.markdown(f"<p class='section-header'>Cercles de corrélation ACP</p>",
+                unsafe_allow_html=True)
+
+    col_cc1, col_cc2 = st.columns(2)
+    with col_cc1:
+        st.markdown("**Modele classique** — 8 variables")
+        fig_cc_cls = pca_correlation_circle(
+            d_cls["X_scaled"], d_cls["feat_cols"],
+            title="Cercle de corrélation — Classique",
+        )
+        st.plotly_chart(fig_cc_cls, width="stretch")
+        st.markdown(
+            """
+            <div style="font-size:0.83rem;color:#475569;background:#F8FAFF;
+                        border-radius:8px;padding:12px;margin-top:4px;">
+            PC1 synthétise le gradient de développement humain global : les variables
+            gdpp_log et life_expec pointent vers la gauche (pôle développé), tandis que
+            child_mort_log et total_fer pointent vers la droite (pôle vulnérable). Les
+            flèches opposées confirment leur corrélation négative forte. PC2 capte une
+            dimension orthogonale liée aux échanges commerciaux : exports_log et imports_log
+            se distinguent sur cet axe. Les flèches courtes (inflation_log) indiquent des
+            variables dont la variance est distribuée sur des composantes tardives.
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with col_cc2:
+        st.markdown("**Modele enrichi** — 14 variables")
+        fig_cc_enr = pca_correlation_circle(
+            d_enr["X_scaled"], d_enr["feat_cols"],
+            title="Cercle de corrélation — Enrichi FSI",
+        )
+        st.plotly_chart(fig_cc_enr, width="stretch")
+        st.markdown(
+            """
+            <div style="font-size:0.83rem;color:#475569;background:#F8FAFF;
+                        border-radius:8px;padding:12px;margin-top:4px;">
+            PC1 (≈ 50 % de variance) reste un axe de développement renforcé : gdpp_log,
+            physicians_per_1000 et social_schooling_log forment un faisceau opposé à
+            child_mort_log et social_poverty_2_15_log. La nouveauté est PC2 : hiv_prevalence_log
+            se distingue des autres variables par une direction quasi-orthogonale à l'axe de
+            développement, de même que refugees_idps. Cette orthogonalité révèle que la
+            prévalence VIH et les déplacements de populations sont partiellement indépendants
+            du niveau de revenu — c'est précisément ce signal que k=4 exploite pour
+            séparer deux formes de vulnérabilité que le modèle classique confondait.
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
     # ── Taille des clusters ────────────────────────────────────────────────────
     st.markdown(f"<p class='section-header'>Taille des clusters</p>", unsafe_allow_html=True)
@@ -169,7 +222,7 @@ Le principe repose sur l'alignement des nouveaux clusters sur les strates socio-
 * Le pôle de richesse est stabilisé comme référent commun.
 * Les scissions observées dans le pôle de pauvreté (distinction entre fragilité étatique et crises sanitaires) sont traitées comme une stabilité de profil.
 
-Un pays est donc comptabilisé comme "migrant" uniquement lorsqu'il bascule d'une strate à une autre, garantissant que le volume de migrations affiché reflète une dynamique de développement réelle et non une instabilité statistique.
+Un pays est donc comptabilisé comme "migrant" uniquement lorsqu'il bascule d'une strate à une autre.
             </div>
             """,
             unsafe_allow_html=True,

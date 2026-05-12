@@ -21,7 +21,7 @@ def render():
         model_key = st.radio(
             "Modele",
             ["Modele classique", "Modele enrichi"],
-            format_func=lambda k: "Classique (8 var.)" if k == "Modele classique" else "Enrichi FSI (14 var.)",
+            format_func=lambda k: "Classique" if k == "Modele classique" else "Enrichi",
             horizontal=True,
             label_visibility="visible",
         )
@@ -154,7 +154,7 @@ def render():
         d["X_scaled"], labels,
         country_names=df[id_col].tolist(),
         cluster_names=cluster_names,
-        title=f"ACP — Cluster {cluster_id} ({cname}) mis en evidence",
+        title=f"ACP — Cluster {cluster_id} ({cname})",
     )
     st.plotly_chart(fig_pca, width="stretch")
 
@@ -166,6 +166,6 @@ def render():
     fig_map = choropleth_map(df, id_col, iso_col, cluster_names=cluster_names)
     st.plotly_chart(fig_map, width="stretch")
     st.caption(
-        f"Cluster {cluster_id} ({cname}) mis en evidence. "
+        f"Cluster {cluster_id} ({cname}) . "
         "Passez la souris sur les pays pour voir leur nom et cluster."
     )
