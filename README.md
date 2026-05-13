@@ -210,12 +210,6 @@ clustering_countries/
 │   ├── P2_modeling.ipynb
 │   └── P3_interpretation.ipynb
 │
-├── outputs/
-│   ├── figures/
-│   ├── tables/
-│   ├── reports/
-│   └── datasets_agreges/
-│
 ├── src/
 │   ├── config/
 │   ├── utils/
