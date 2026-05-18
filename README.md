@@ -320,7 +320,7 @@ Aucune taxonomie universelle des pays selon leur niveau de besoin humanitaire n'
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/Vimdie/clustering_countries.git
+git clone https://github.com/awa-d/ML2-project_clustering-countries.git
 
 # Installer les dépendances
 pip install -r requirements.txt
